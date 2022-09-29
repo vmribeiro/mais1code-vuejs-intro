@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Calculadora</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      template: `
+        <div class="container">
+          <h1>CALCULADORA</h1>
+          <br />
+          <div class="numeros1e2">
+            <p>
+              <input placeholder="DIGITE O PRIMEIRO NÚMERO" type="number" name="valor1"  class="calc" v-model="number1" /><br>
+              
+            </p>
+
+            <p>
+              <input placeholder="DIGITE O SEGUNDO NÚMERO" type="number" name="valor2" class="calc" v-model="number2" /><br>
+
+            </p>
+
+            <p>
+              <input placeholder="DIGITE A OPÇÃO" type="text" name= "opcaocalc" class= "calc" v-model="opcao" /><br>
+
+            <p>
+            <button v-on:click="opcoes" type="submit" class="btn btn-primary">calculo</button>
+            
+
+            <p>
+              <textarea placeholder="RESULTADO" name="resultado"  class="form-control" v-model="resultado"></textarea><br>
+            
+            </p>
+            
+          </div>
+        </div>
+
+          
+
+          
+      `,
+      data() {
+        return {
+          numeros: [],
+          number1: 0,
+          number2: 0,
+          opcao: '', 
+          resultado: ''
+        }
+      },
+      methods: {
+        opcoes() {
+          valor1 = parseFloat(this.number1);
+          valor2 = parseFloat(this.number2);
+
+          if(this.opcao.trim() == 'somar'){
+             resultado = valor1 + valor2;
+             this.resultado = "somar: " + String(resultado);
+          }
+          else if (this.opcao.trim() == 'multiplicar') {
+             resultado = valor1 * valor2;
+             this.resultado = "multiplicar: " + String(resultado);
+          }
+          else if (this.opcao.trim() == 'dividir') {
+             resultado = valor1 / valor2;
+             this.resultado = "dividir: " + String(resultado);
+          }
+          else if (this.opcao.trim() == 'subtraia') {
+            resultado = valor1 - valor2;
+            this.resultado = "subtraia: " + String(resultado);
+          }
+        }
+
+
+
+
+        
+          
+    }
+    })
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6b3043e23a.js" crossorigin="anonymous"></script>
+  
+  
+  
+
+</body>
+</html>
